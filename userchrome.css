@@ -278,19 +278,12 @@ button.new-note-button:hover {
 /* hovered */
 .note-list > .list-item-container:hover {
 	background-color: #ffffff;
+	cursor: pointer;
 }
 /* selected */
 .note-list > .list-item-container.selected {
 	background-color: #ffffff;
-}
-.note-list > .list-item-container.selected::before {
-	position: absolute;
-	width: unset;
-	top: 0;
-	right: 0 !important;
-	bottom: 0;
-	left: 0 !important;
-	border: 2px solid #3580bd;
+	box-shadow: 0 0 0 2px #3580bd inset;
 }
 
 /*------------------------- todo item -------------------------*/
