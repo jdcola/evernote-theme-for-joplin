@@ -1,1 +1,1 @@
-# evernote-theme-for-joplin
+# EverJop - An Evernote Theme for Joplin
