@@ -1,4 +1,4 @@
-/* EverJop */
+/* EverJop v0.5.1 */
 /* userstyle.css */
 
 :root {
@@ -37,10 +37,6 @@ body {
 /*=========================*/
 
 /* 
-Rich editor hieararchy:
-	body #tinymce .mce-content-body .jop-tinymce
-		div #rendered-md
-
 Markdown editor:
 	div .codeMirrorEditor
 		div .CodeMirror .cm-s-default .CodeMirror-wrap
@@ -62,6 +58,12 @@ Markdown viewer:
 					...
 					div #joplin-container-content
 						div #rendered-md
+
+Rich editor hieararchy:
+	body #tinymce .mce-content-body .jop-tinymce
+		div #rendered-md
+		div
+		div
 */
 
 /* rendered viewer background */
@@ -76,19 +78,18 @@ Markdown viewer:
 
 /*------------------------- editor padding -------------------------*/
 
-#tinymce,
-#joplin-container-content {
-	padding: 0;
-}
-#tinymce > #rendered-md {
-	padding: 30px 40px;
-}
+/* Markdown viewser */
 #joplin-container-content > #rendered-md {
-	padding: 20px !important;
+	padding: 10px 20px !important;
+}
+
+/* Rich editor */
+#tinymce {
+	padding: 30px 40px !important;
 }
 
 p {
-	margin-block: 10px;
+	margin-block: 10px !important;
 }
 a {
 	color: #026fac;
