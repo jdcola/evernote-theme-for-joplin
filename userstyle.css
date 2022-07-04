@@ -1,4 +1,4 @@
-/* EverJop v0.5.1 */
+/* EverJop */
 /* userstyle.css */
 
 :root {
@@ -85,7 +85,7 @@ Rich editor hieararchy:
 
 /* Rich editor */
 #tinymce {
-	padding: 30px 40px !important;
+	padding: 20px 40px !important;
 }
 
 p {
@@ -112,3 +112,6 @@ code.inline-code {
 	border-radius: .25em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	line-height: 2.6em;
+}
