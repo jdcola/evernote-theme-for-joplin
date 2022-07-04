@@ -1,0 +1,482 @@
+/* EverJop v0.5.1 */
+/* userchrome.css */
+
+:root {
+	/* not acturally used, just for quick lookup */
+	--enc-green: #00a82d;
+	--enc-green-dark: #008f26;
+	--enc-orange: #fcb100;
+	--enc-gray-pane-sep: #e6e6e6;
+	--enc-gray-hovered-button: #f2f2f2;
+	--enc-blue-selected-frame: #3580bd;
+	--enc-blue-glyph: #0081c2;
+	--enc-blue-selected-button: #66b3da;
+	--enc-blue-hovered-button: #b2d9ec;
+}
+
+body {
+	background: #f8f8f8;
+}
+
+/*========================= Sidebar pane =========================*/
+
+.sidebar {
+	background-color: #1a1a1a !important;
+}
+
+/*------------------------- Section titles ("Notebooks", "Tags") -------------------------*/
+
+/* indent & pointer */
+.sidebar > div:first-child > div:first-child > div,
+.sidebar > div:first-child > div:nth-child(3) > div {
+	padding: 15px;
+	cursor: pointer;
+}
+
+/* darken to emphasize on real content*/
+.sidebar > div:first-child > div:first-child > div > span,
+.sidebar > div:first-child > div:nth-child(3) > div > span {
+	color: #4d4d4d;
+}
+
+/* remove leading icon */
+.sidebar .icon-notebooks::before,
+.sidebar .icon-tags::before {
+	content: none;
+}
+.sidebar .icon-notebooks,
+.sidebar .icon-tags {
+	margin: 0;
+}
+
+/*------------------------- "+" (add notebook) button -------------------------*/
+
+.sidebar > div:first-child > div:first-child > button {
+	padding-top: 0;
+	padding-right: 22px;
+	height: 45px;
+	min-height: 45px;
+	max-height: 45px;
+}
+.fa-plus {
+	color: #00a82d !important;
+}
+
+/*------------------------- "All notes" -------------------------*/
+
+.all-notes > .icon-notes {
+	color: #cccccc;
+	opacity: 60%;
+}
+.all-notes > .list-item {
+	color: #cccccc;
+	opacity: 1;
+}
+
+/* highlight selection */
+/* temporal workaround — ".juqUHj" is Joplin version specified: */
+.all-notes.juqUHj {
+	background: #404040 !important;
+}
+.all-notes.juqUHj > .icon-notes,
+.all-notes.juqUHj > .list-item {
+	color: #ffffff;
+}
+
+/*------------------------- Items (notebook, tag) -------------------------*/
+
+/* adjust line spacing */
+.folders.expanded > .list-item-container,
+.tags > .list-item-container {
+	height: 24px !important;
+	align-items: center;
+}
+
+/* item color and cursor */
+.folders.expanded > .list-item-container > .list-item,
+.tags > .list-item-container > .list-item {
+	color: #cccccc;
+	opacity: 1;
+	cursor: pointer;
+}
+
+/* hover */
+.folders.expanded > .list-item-container:hover,
+.tags > .list-item-container:hover {
+	background: #333333;
+}
+
+/* selected */
+.folders.expanded > .list-item-container.selected,
+.tags > .list-item-container.selected {
+	background: #404040;
+}
+.folders.expanded > .list-item-container.selected .title,
+.folders.expanded > .list-item-container.selected .tag-label,
+.tags > .list-item-container.selected .title,
+.tags > .list-item-container.selected .tag-label {
+	color: #ffffff;
+}
+
+/* note count */
+.note-count-label::before {
+	content: "(";
+}
+.note-count-label::after {
+	content: ")";
+}
+
+/* prepend notebook icon */
+.folders.expanded > .list-item-container > .list-item > .title::before {
+	content: "\e905";
+	opacity: 60%;
+	font-family: icomoon;
+	font-size: 14px;
+	margin-right: 8px;
+	margin-left: 1px;
+	position: relative;
+	top: 1.5px;
+}
+
+/* prepend tag icon */
+.tags > .list-item-container .list-item > .tag-label::before {
+	content: "\e908";
+	opacity: 60%;
+	font-family: icomoon;
+	font-size: 14px;
+	margin-right: 8px;
+	margin-left: 1px;
+	position: relative;
+	top: 1.5px;
+}
+
+/*------------------------- Synchronization section -------------------------*/
+
+.sidebar > div:last-child {
+	padding: 15px !important;
+}
+.sidebar > div:last-child > div > div {
+	color: #fcb100;
+}
+
+/* synchronize button */
+.sidebar > div:last-child > button {
+	border-radius: 5px;
+	color: #fcb100;
+	border-color: #fcb100;
+}
+.sidebar > div:last-child > button:hover {
+	border-color: #fcb100;
+}
+.icon-sync::before,
+.sidebar > div:last-child > button > .icon-sync + span,
+.sidebar > div:last-child > button:hover > .icon-sync + span {
+	color: #fcb100;
+}
+
+/*========================= separator between sidebar and note list =========================*/
+.rli-root > div:first-child > div:nth-child(2) > div {
+	background-color: #0000ff00;
+	z-index: 1000;
+} 
+
+
+/*========================= Note-list pane =========================*/
+
+.rli-noteList {
+	background-color: #f8f8f8;
+	border-right: 1px solid #e6e6e6;
+}
+
+.rli-noteList::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	right: -1px;
+	border-right: 1px solid #e6e6e6ff;
+}
+
+/*------------------------- Search bar -------------------------*/
+
+.rli-noteList > div:first-child > div > div:first-child {
+	background-color: #f8f8f8;
+}
+
+/* horizontal separator line */
+.rli-noteList > div:first-child > div > div:first-child::after {
+	content: '';
+	position: absolute;
+    top: +49px;
+    left: -5px;
+    right: -5px;
+    border-top: 1px solid #e6e6e6;
+}
+
+/* search box */
+.search-bar > div > input {
+	border-color: #e6e6e6;
+	border-radius: 13px;
+}
+
+/* search icon */
+span.icon-search {
+	color: #737373;
+}
+
+/* sort order buttons */
+button.sort-order-field-button,
+button.sort-order-reverse-button {
+	border: none;
+	border-radius: 5px;
+	background: inherit;
+}
+button.sort-order-field-button:hover,
+button.sort-order-reverse-button:hover {
+	background: #e6e6e6;
+}
+.rli-noteList > div:first-child > div > div:first-child > div:nth-child(2) > button:first-child > span, 
+.rli-noteList > div:first-child > div > div:first-child > div:nth-child(2) > button:nth-child(2) > span {
+	color: #737373;
+}
+
+/* new todo/note buttons */
+button.new-todo-button, 
+button.new-note-button {
+	background-color: #00a82d;
+	border-radius: 5px;
+}
+button.new-todo-button:hover,
+button.new-note-button:hover {
+	background: #008f26;
+}
+
+/*------------------------- Note list -------------------------*/
+
+.rli-noteList > div:first-child > div > div:nth-child(2) {
+	background-color: #f8f8f8;
+	border-right: none;
+}
+.note-list > .list-item-container::before {
+	border-bottom: none;
+}
+.note-list > .list-item-container > a {
+	font-size: 14px !important;
+	color: #262626;
+	cursor: pointer !important;
+	border: none !important;
+}
+
+.note-list > .list-item-container.odd {
+	background-color: #f8f8f8;
+}
+.note-list > .list-item-container.even {
+	background-color: #f2f2f2;
+}
+
+/* hovered */
+.note-list > .list-item-container:hover {
+	background-color: #ffffff;
+}
+/* selected */
+.note-list > .list-item-container.selected {
+	background-color: #ffffff;
+}
+.note-list > .list-item-container.selected::before {
+	position: absolute;
+	width: unset;
+	top: 0;
+	right: 0 !important;
+	bottom: 0;
+	left: 0 !important;
+	border: 2px solid #3580bd;
+}
+
+/*------------------------- todo item -------------------------*/
+.todo-list-item > div > input[type=checkbox] {
+	cursor: pointer;
+	accent-color: #a73cbd;
+	z-index: 500;
+}
+
+/*========================= separator between note list and editor =========================*/
+
+.rli-noteList > div:nth-child(2) > div {
+	background-color: #0000ff00;
+	z-index: 1000;
+}
+
+/*========================= Editor pane =========================*/
+
+.rli-editor > div:first-child > div:first-child > div:first-child > div {
+	padding-left: 0 !important;
+}
+.rli-editor > div:first-child > div:first-child > div:first-child > div:first-child {
+	height: 50px;
+	border-bottom: 1px solid #e6e6e6; /* evernote original #f2f2f2, changed to match vertical divider */
+}
+
+/*------------------------- Title bar -------------------------*/
+
+.rli-editor > div:first-child > div:first-child > div:first-child > div:first-child {
+	padding-left: 16px !important;
+}
+.title-input {
+	color: #333333 !important;
+}
+.updated-time-label {
+	color: #777777 !important;
+}
+
+/* title bar buttons */
+.editor-toolbar > div > a {
+	cursor: pointer;
+}
+.editor-toolbar > div > a > i, 
+.editor-toolbar > div > a > span {
+	color: #a6a6a6;
+}
+.editor-toolbar > div > a:hover {
+	background-color: #f2f2f2;
+}
+.editor-toolbar > div > a:hover > i, 
+.editor-toolbar > div > a:hover > span {
+	color: #737373;
+}
+
+/*------------------------- Notebook indicator -------------------------*/
+
+.rli-editor > div:first-child > div:first-child > div:first-child > div:nth-child(2) > button {
+	background-color: #0081c224;
+	margin-left: 10px !important;
+}
+.rli-editor > div:first-child > div:first-child > div:first-child > div:nth-child(2) > button > span {
+	color: #0081c2 !important;
+}
+
+/*------------------------- Editor toolbar -------------------------*/
+
+/* toolbar background */
+.joplin-tinymce > div,
+.tox-toolbar__primary > div,
+div.joplin-tinymce div.tox div.tox-toolbar__primary,
+.editor-toolbar {
+	background-color: #ffffff !important;  /* #f8f8f8 */
+}
+
+/* separate from content region */
+.tox-editor-header,
+.editor-toolbar {
+	border-bottom: 1px solid #f2f2f2 !important;
+}
+/* exclude the upper-right toolbar */
+.rli-editor > div:first-child > div:first-child > div:first-child > div:first-child .editor-toolbar {
+	border-bottom: none !important;
+}
+
+/* button background */
+.rli-editor button:hover,
+.rli-editor button > span:hover {
+	cursor: pointer;
+}
+/* button foreground */
+.editor-toolbar a.button > span {
+	color: #7a8083 !important;
+}
+.tox-icon path {
+	color: #7a8083 !important; /* #4d4d4d */
+	fill: #7a8083 !important;
+}
+.tox-tbtn__select-label {
+	color: #7a8083 !important;
+}
+.tox-tbtn__select-chevron path {
+	color: #7a8083 !important; /* 6b6b6b */
+	fill: #7a8083 !important;
+}
+
+/* blue buttons — go-back, go-forward, open-external */
+.editor-toolbar > div:first-child > a.button > span,
+.joplin-tinymce > div:first-child > a > span {
+	color: #0081c2 !important;
+}
+
+/* blue buttons — editor switch button */
+.tox-tbtn.richText-active > div,
+.tox-tbtn.markdown-active > div {
+	border-color: #66b3da !important;
+}
+.tox-tbtn.richText-active > div > .fa-markdown,
+.tox-tbtn.markdown-active > div > .fa-edit {	
+	color: #66b3da !important;
+}
+.tox-tbtn.richText-active > div > .fa-edit,
+.tox-tbtn.markdown-active > div > .fa-markdown {
+	color: #ffffff !important;
+}
+.tox-tbtn.richText-active > div:nth-child(2),
+.tox-tbtn.markdown-active > div:first-child {
+	background-color: #66b3da !important;
+}
+
+/* hover and enabled */
+.joplin-tinymce > div:first-child > a:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+.tox-toolbar__primary .tox-tbtn:hover {
+	background-color: #f2f2f2 !important;
+}
+.tox-tbtn.tox-tbtn--enabled {
+	background-color: #66b3da !important;
+}
+.tox-tbtn.tox-tbtn--enabled:hover {
+	background-color: #b2d9ec !important;
+}
+.tox-tbtn.tox-tbtn--enabled > .tox-tbtn__select-label {
+	color: #ffffff !important;
+}
+.tox-tbtn.tox-tbtn--enabled > .tox-icon > svg > path {
+	color: #ffffff !important;
+	fill: #ffffff !important;
+}
+
+/*------------------------- tag bar -------------------------*/
+
+.tag-bar {
+	border-top: 1px solid #f2f2f2;
+}
+/* left padding */
+.tag-bar::before {
+	content: "";
+	width: 12px;
+}
+
+/* icon */
+.tag-bar > a.button {
+	cursor: pointer;
+}
+.tag-bar > a.button > .icon-tags {
+	color: #0081c2;
+}
+.tag-bar > a.button:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+/* tags */
+.tag-list > button {
+	color: #0081c2 !important; /* Evernote: #4d4d4d */
+	background-color: #0081c224 !important; /* Evernote: #f2f2f2 */
+}
+/* new tag placeholder */
+.tag-list + span {
+	color: #a6a6a6 !important;
+	cursor: pointer;
+}
+
+/*========================= Code editor =========================*/
+
+.CodeMirror-scroll {
+	padding: 20px !important;
+}

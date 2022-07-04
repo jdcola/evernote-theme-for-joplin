@@ -1,0 +1,113 @@
+/* EverJop v0.5.1 */
+/* userstyle.css */
+
+:root {
+	--base-font: "Source Sans Pro", "-apple-system", "BlinkMacSystemFont", "system-ui", "Segoe UI", Roboto, sans-serif;
+	--base-font-size: 16px;
+	--monospace-font: "Source Code Pro", "SF Mono", monospace;
+	--monospace-font-size: 14px;
+}
+
+body {
+	color: #333333;
+	line-height: 1.6em;
+}
+
+/*========================= GENERAL =========================*/
+/* base font */
+#rendered-md,
+#tinymce,
+#joplin-container-body,
+#joplin-container-content,
+#spoiler-block-title
+#rendered-md > table > * {
+	font-family: var(--base-font) !important;
+	font-size: var(--base-font-size);
+}
+
+/* monospace font */
+#rendered-md > .joplin-editable > pre:not(.mermaid),
+#rendered-md > .joplin-editable > pre > code,
+#rendered-md .inline-code,
+[id*="fnref"] /* footnote ref */ { 
+	font-family: var(--monospace-font) !important;
+	font-size: var(--monospace-font-size);
+}
+
+/*=========================*/
+
+/* 
+Rich editor hieararchy:
+	body #tinymce .mce-content-body .jop-tinymce
+		div #rendered-md
+
+Markdown editor:
+	div .codeMirrorEditor
+		div .CodeMirror .cm-s-default .CodeMirror-wrap
+			...
+			div .CodeMirror-scroll
+				div .CodeMirror-sizer
+					div
+						div role=presentation
+							...
+							div .CodeMirror-code role=presentation
+
+
+Markdown viewer:
+	iframe .noteTextViewer
+		#document
+			html
+				header #joplin-container-root-head
+				body #joplin-container-body
+					...
+					div #joplin-container-content
+						div #rendered-md
+*/
+
+/* rendered viewer background */
+#rendered-md,
+#tinymce,
+#joplin-container-body,
+#joplin-container-content,
+.exported-note {
+	background: #ffffff;
+	max-width: unset;
+}
+
+/*------------------------- editor padding -------------------------*/
+
+#tinymce,
+#joplin-container-content {
+	padding: 0;
+}
+#tinymce > #rendered-md {
+	padding: 30px 40px;
+}
+#joplin-container-content > #rendered-md {
+	padding: 20px !important;
+}
+
+p {
+	margin-block: 10px;
+}
+a {
+	color: #026fac;
+}
+mark {
+	background-color: #ffdb2773;
+}
+
+pre {
+	border: 1px solid #e6e6e6;
+	background-color: #f8f8f8 !important;
+	padding: 10px 15px;
+	border-radius: 0.3em;
+}
+code.inline-code {
+	border: 1px solid #e6e6e6 !important;
+	background-color: #f8f8f8 !important;
+	padding-right: .2em;
+	padding-left: .2em;
+	border-radius: .25em;
+}
+
