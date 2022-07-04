@@ -23,7 +23,3 @@ Not implemented:
 
 - Preferences window not customized
 - Not tested on Windows and Linux, yet
-
-## Release History
-
-- **0.5.1** (2022-07-04) — initial release
