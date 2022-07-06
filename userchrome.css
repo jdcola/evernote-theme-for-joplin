@@ -18,8 +18,15 @@ body {
 	background: #f8f8f8;
 }
 
+/*========================= Pane separators =========================*/
+div > div[style*="resize"] {
+	background-color: purple;
+	z-index: 50;
+	opacity: 0.1;
+}
 /*========================= Sidebar pane =========================*/
 
+.rli-sideBar,
 .sidebar {
 	background-color: #1a1a1a !important;
 }
@@ -53,7 +60,7 @@ body {
 
 .sidebar > div:first-child > div:first-child > button {
 	padding-top: 0;
-	padding-right: 22px;
+	padding-right: 17px;
 	height: 45px;
 	min-height: 45px;
 	max-height: 45px;
@@ -194,17 +201,8 @@ body {
 
 .rli-noteList {
 	background-color: #f8f8f8;
-	border-right: 1px solid #e6e6e6;
-}
-
-.rli-noteList::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 1px;
-	right: -1px;
-	border-right: 1px solid #e6e6e6ff;
+	/* border-right: 1px solid #e6e6e6; */
+	border: 1px solid red;
 }
 
 /*------------------------- Search bar -------------------------*/
@@ -481,4 +479,11 @@ div.joplin-tinymce div.tox div.tox-toolbar__primary,
 
 .CodeMirror-scroll {
 	padding: 10px 20px !important;
+}
+
+/*========================= Plugins =========================*/
+
+/*------------------------- Favorites =========================*/
+.rli-plugin-view-joplin\.plugin\.benji\.favorites-favorites\.panel {
+	background-color: #1a1a1a !important;
 }
