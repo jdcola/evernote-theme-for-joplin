@@ -133,9 +133,18 @@ body {
 	font-family: icomoon;
 	font-size: 14px;
 	margin-right: 8px;
-	margin-left: 1px;
+	margin-left: 0;
 	position: relative;
-	top: 1.5px;
+	top: 1px;
+}
+/* folder emoji */
+.folders.expanded > .list-item-container > .list-item > div:first-child > span {
+	font-size: 14px !important;
+	padding-bottom: 2px !important;
+}
+.folders.expanded > .list-item-container > .list-item > div + .title::before {
+	content: "";
+	margin-right: 3px;
 }
 
 /* prepend tag icon */
